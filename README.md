@@ -1,5 +1,7 @@
 # PDF RAG (Retrieval-Augmented Generation) Application
 
+![PDF RAG Application Banner](./public/banner.png)
+
 1. Upload PDF files
 2. Process and index the contents using embeddings stored in a Qdrant vector database
 3. Chat with your PDF content using Google's Gemini AI
