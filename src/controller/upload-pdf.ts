@@ -20,11 +20,9 @@ const textSplitter = new RecursiveCharacterTextSplitter({
 });
 
 export const uploadPdf = async (req: Request, res: Response) => {
-
   let tempFilePath = "";
 
   try {
-
     if (!req.file) {
       res.status(400).json({ error: "No PDF file uploaded" });
       return;
@@ -63,17 +61,12 @@ export const uploadPdf = async (req: Request, res: Response) => {
       collectionName: req.file.originalname,
       content: splitDocs,
     });
-    
   } catch (error) {
-
     console.error("Error processing PDF:", error);
     res.status(500).json({ error: "Failed to process PDF" });
-
   } finally {
-
     if (tempFilePath && fs.existsSync(tempFilePath)) {
       fs.unlinkSync(tempFilePath);
     }
-
   }
 };

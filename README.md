@@ -1,6 +1,7 @@
 # PDF RAG (Retrieval-Augmented Generation) Application
 
 This is a TypeScript Node.js application that allows you to:
+
 1. Upload PDF files
 2. Process and index the contents using embeddings stored in a Qdrant vector database
 3. Chat with your PDF content using Google's Gemini AI
@@ -107,6 +108,7 @@ Send a query to chat with the content of a previously uploaded PDF.
     "response": "The main topic of this document is..."
   }
   ```
+
 ## How It Works
 
 1. **PDF Upload**: The application accepts PDF files, converts them to text, and splits them into chunks.

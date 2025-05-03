@@ -9,7 +9,7 @@ const embedder = new GoogleGenerativeAIEmbeddings({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
-export const ChatWithPdf = async (req: Request, res: Response) =>{
+export const ChatWithPdf = async (req: Request, res: Response) => {
   try {
     const { query, collectionName } = req.body;
 
@@ -48,11 +48,8 @@ export const ChatWithPdf = async (req: Request, res: Response) =>{
       message: "Chat completed successfully",
       response: response.text,
     });
-
   } catch (error) {
-
     console.error("Error processing PDF:", error);
     res.status(500).json({ error: "Failed to process PDF" });
-
   }
 };
