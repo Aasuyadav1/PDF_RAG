@@ -1,26 +1,8 @@
 # PDF RAG (Retrieval-Augmented Generation) Application
 
-This is a TypeScript Node.js application that allows you to:
-
 1. Upload PDF files
 2. Process and index the contents using embeddings stored in a Qdrant vector database
 3. Chat with your PDF content using Google's Gemini AI
-
-## Features
-
-- PDF upload and processing
-- Vector embeddings with Google Generative AI
-- Semantic search and RAG using Qdrant vector database
-- Chat interface to query PDF contents
-- TypeScript for type safety
-- Express framework for handling HTTP requests
-
-## Prerequisites
-
-- Node.js (v16.x or higher recommended)
-- npm (v8.x or higher)
-- Docker and Docker Compose (for running Qdrant database)
-- Google Gemini API key
 
 ## Getting Started
 
@@ -39,12 +21,6 @@ npm install
 
 ### 3. Set up environment variables
 
-Copy the example environment file and add your Gemini API key:
-
-```bash
-cp .env.sample .env
-```
-
 Update the `.env` file with your actual Gemini API key:
 
 ```
@@ -59,15 +35,11 @@ PORT=3000
 docker-compose -f docker-compose.db.yml up -d
 ```
 
-This command will start the Qdrant vector database in a Docker container, exposing it on port 6333.
-
 ### 5. Run the development server
 
 ```bash
 npm run dev
 ```
-
-The server will start at http://localhost:3000 (or the port specified in your .env file).
 
 ## API Endpoints
 
@@ -108,16 +80,6 @@ Send a query to chat with the content of a previously uploaded PDF.
     "response": "The main topic of this document is..."
   }
   ```
-
-## How It Works
-
-1. **PDF Upload**: The application accepts PDF files, converts them to text, and splits them into chunks.
-2. **Vector Embedding**: Each text chunk is converted into a vector embedding using Google's Generative AI model.
-3. **Vector Storage**: The embeddings are stored in a Qdrant vector database for efficient semantic search.
-4. **Chat Interface**: When a query is sent, the application:
-   - Converts the query to an embedding
-   - Finds the most semantically similar text chunks in the database
-   - Uses these relevant chunks as context for Google's Gemini AI to generate a response
 
 ## Project Structure
 
