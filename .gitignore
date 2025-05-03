@@ -2,6 +2,8 @@
 node_modules/
 jspm_packages/
 
+uploads/
+
 # Build outputs
 dist/
 build/
@@ -42,6 +44,8 @@ lerna-debug.log*
 # Coverage directory used by tools like istanbul
 coverage/
 *.lcov
+
+
 
 # Editor directories and files
 .idea/

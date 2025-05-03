@@ -1,23 +1,18 @@
-import express, { Request, Response } from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
+import express from 'express';
+import pdfRouter from './router/pdf-router';;
+import chatRouter from './router/chat-router';
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// A simple route
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Welcome to the TypeScript Node.js server!' });
-});
+app.use('/api/pdf', pdfRouter);
+app.use('/api/pdf', chatRouter);
 
-// Health check endpoint
-app.get('/health', (req: Request, res: Response) => {
-  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
-});
-
-// Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
   console.log(`http://localhost:${port}`);
